@@ -38,14 +38,30 @@ class _CounterState extends State<Counter> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
           const Text(
             '0',
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 200),
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.add))
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.arrow_circle_up),
+                color: Colors.green,
+                iconSize: 100,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.arrow_circle_down),
+                color: Colors.red,
+                iconSize: 100,
+              )
+            ],
+          ),
         ],
       ),
     );
