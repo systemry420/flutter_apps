@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Counter'),
+          title: const Text('Counter'),
           backgroundColor: Colors.blue,
         ),
         body: Counter(),
@@ -35,28 +35,38 @@ class Counter extends StatefulWidget {
 }
 
 class _CounterState extends State<Counter> {
+  int counter = 0;
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Text(
-            '0',
-            style: TextStyle(fontSize: 200),
+          Text(
+            counter.toString(),
+            style: const TextStyle(fontSize: 200),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    counter++;
+                  });
+                },
                 icon: const Icon(Icons.arrow_circle_up),
                 color: Colors.green,
                 iconSize: 100,
               ),
               IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.arrow_circle_down),
+                onPressed: () {
+                  setState(() {
+                    counter--;
+                  });
+                },
+                icon: const Icon(Icons.arrow_circle_down),
                 color: Colors.red,
                 iconSize: 100,
               )
