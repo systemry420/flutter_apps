@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_apps/Countdown.dart';
 import 'package:flutter_apps/Counter.dart';
 
 void main() {
@@ -19,10 +20,10 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Counter'),
+          title: const Text('Apps'),
           backgroundColor: Colors.blue,
         ),
-        body: Counter(),
+        body: Countdown(),
       ),
     );
   }
