@@ -52,46 +52,51 @@ class _CountdownState extends State<Countdown> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SafeArea(
-                child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 5),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Column(
-                          children: [
-                            Text('${ days < 10 ? "0$days" : days}', style: TextStyle(fontSize: 50),),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Text('${ hours < 10 ? "0$hours" : hours }', style: TextStyle(fontSize: 50),),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text('${ minutes }', style: TextStyle(fontSize: 50),),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Text('$seconds', style: TextStyle(fontSize: 50),),
-                          ],
-                        ),
-                      ],
-                    ),
-                ),
+              Container(
+                  child: Text('${ days < 10 ? "0$days" : days}', style: TextStyle(fontSize: 45),),
+                width: 90,
+                alignment: Alignment.center,
+              ),
+              Container(
+                  child: Text('${ hours < 10 ? "0$hours" : hours }', style: TextStyle(fontSize: 45),),
+                width: 90,
+                alignment: Alignment.center,
+              ),
+              Container(
+                  child: Text('${ minutes < 10 ? "0$minutes" : minutes }', style: TextStyle(fontSize: 45),),
+                width: 90,
+                alignment: Alignment.center,
+              ),
+              Container(
+                  child: Text('${ seconds < 10 ? "0$seconds": seconds }', style: TextStyle(fontSize: 45),),
+                width: 90,
+                alignment: Alignment.center,
               ),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text('M', style: TextStyle(fontSize: 50),),
-              Text('D', style: TextStyle(fontSize: 50),),
-              Text('H', style: TextStyle(fontSize: 50),),
-              Text('M', style: TextStyle(fontSize: 50),),
-              Text('S', style: TextStyle(fontSize: 50),),
+              Container(
+                  child: Text('D', style: TextStyle(fontSize: 70),),
+                width: 90,
+                alignment: Alignment.center,
+              ),
+              Container(
+                  child: Text('H', style: TextStyle(fontSize: 70),),
+                width: 90,
+                alignment: Alignment.center,
+              ),
+              Container(
+                  child: Text('M', style: TextStyle(fontSize: 70),),
+                width: 90,
+                alignment: Alignment.center,
+              ),
+              Container(
+                  child: Text('S', style: TextStyle(fontSize: 70),),
+                width: 90,
+                alignment: Alignment.center,
+              ),
             ],
           )
         ],
