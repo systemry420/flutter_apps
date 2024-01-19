@@ -8,11 +8,26 @@ class WeightConverter extends StatefulWidget {
 }
 
 class _WeightConverterState extends State<WeightConverter> {
+  int number = 0;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Text('Weight Converter', style: TextStyle(fontSize: 40),),
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: TextField(
+              keyboardType: TextInputType.number,
+              onChanged: (value) {
+                setState(() {
+                  if(value == '') {
+                    number = 0;
+                  } else {
+                    number = int.parse(value);
+                  }
+                });
+          }),
+        ),
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -27,7 +42,7 @@ class _WeightConverterState extends State<WeightConverter> {
                     child: Column(
                       children: [
                         Text('Gram'),
-                        Text('Gram'),
+                        Text('${number / 0.0022046}'),
                       ],
                     ),
                   ),
@@ -49,8 +64,8 @@ class _WeightConverterState extends State<WeightConverter> {
                     padding: const EdgeInsets.all(32.0),
                     child: Column(
                       children: [
-                        Text('Gram'),
-                        Text('Gram'),
+                        Text('Kilogram'),
+                        Text('${number / 2.2046}'),
                       ],
                     ),
                   ),
@@ -72,8 +87,8 @@ class _WeightConverterState extends State<WeightConverter> {
                     padding: const EdgeInsets.all(32.0),
                     child: Column(
                       children: [
-                        Text('Gram'),
-                        Text('Gram'),
+                        Text('Ounce'),
+                        Text('${number * 16}'),
                       ],
                     ),
                   ),
