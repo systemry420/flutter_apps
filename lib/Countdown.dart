@@ -53,24 +53,24 @@ class _CountdownState extends State<Countdown> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                  child: Text('${ days < 10 ? "0$days" : days}', style: TextStyle(fontSize: 45),),
-                width: 90,
+                  width: 90,
                 alignment: Alignment.center,
+                  child: Text('${ days < 10 ? "0$days" : days}', style: const TextStyle(fontSize: 45),),
               ),
               Container(
-                  child: Text('${ hours < 10 ? "0$hours" : hours }', style: TextStyle(fontSize: 45),),
-                width: 90,
+                  width: 90,
                 alignment: Alignment.center,
+                  child: Text('${ hours < 10 ? "0$hours" : hours }', style: const TextStyle(fontSize: 45),),
               ),
               Container(
-                  child: Text('${ minutes < 10 ? "0$minutes" : minutes }', style: TextStyle(fontSize: 45),),
-                width: 90,
+                  width: 90,
                 alignment: Alignment.center,
+                  child: Text('${ minutes < 10 ? "0$minutes" : minutes }', style: const TextStyle(fontSize: 45),),
               ),
               Container(
-                  child: Text('${ seconds < 10 ? "0$seconds": seconds }', style: TextStyle(fontSize: 45),),
-                width: 90,
+                  width: 90,
                 alignment: Alignment.center,
+                  child: Text('${ seconds < 10 ? "0$seconds": seconds }', style: const TextStyle(fontSize: 45),),
               ),
             ],
           ),
@@ -78,24 +78,24 @@ class _CountdownState extends State<Countdown> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                  child: Text('D', style: TextStyle(fontSize: 70),),
-                width: 90,
+                  width: 90,
                 alignment: Alignment.center,
+                  child: const Text('D', style: TextStyle(fontSize: 70),),
               ),
               Container(
-                  child: Text('H', style: TextStyle(fontSize: 70),),
-                width: 90,
+                  width: 90,
                 alignment: Alignment.center,
+                child: const Text('H', style: TextStyle(fontSize: 70),),
               ),
               Container(
-                  child: Text('M', style: TextStyle(fontSize: 70),),
-                width: 90,
+                  width: 90,
                 alignment: Alignment.center,
+                  child: const Text('M', style: TextStyle(fontSize: 70),),
               ),
               Container(
-                  child: Text('S', style: TextStyle(fontSize: 70),),
-                width: 90,
+                  width: 90,
                 alignment: Alignment.center,
+                  child: const Text('S', style: TextStyle(fontSize: 70),),
               ),
             ],
           )
