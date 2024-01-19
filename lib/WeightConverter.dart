@@ -11,94 +11,96 @@ class _WeightConverterState extends State<WeightConverter> {
   int number = 0;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('Weight Converter', style: TextStyle(fontSize: 40),),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: TextField(
-              keyboardType: TextInputType.number,
-              onChanged: (value) {
-                setState(() {
-                  if(value == '') {
-                    number = 0;
-                  } else {
-                    number = int.parse(value);
-                  }
-                });
-          }),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Container(
-                  alignment: Alignment.centerLeft,
-                  color: Colors.redAccent,
-                  child: Padding(
-                    padding: const EdgeInsets.all(32),
-                    child: Column(
-                      children: [
-                        Text('Gram'),
-                        Text('${number / 0.0022046}'),
-                      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Text('Weight Converter', style: TextStyle(fontSize: 40),),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+                keyboardType: TextInputType.number,
+                onChanged: (value) {
+                  setState(() {
+                    if(value == '') {
+                      number = 0;
+                    } else {
+                      number = int.parse(value);
+                    }
+                  });
+            }),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    alignment: Alignment.center,
+                    color: Colors.redAccent,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Text('Gram', style: TextStyle(fontSize: 20),),
+                          Text('${number / 0.0022046}', style: TextStyle(fontSize: 20),),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.lightGreen,
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(32.0),
-                    child: Column(
-                      children: [
-                        Text('Kilogram'),
-                        Text('${number / 2.2046}'),
-                      ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    color: Colors.lightGreen,
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          Text('Kilogram', style: TextStyle(fontSize: 20),),
+                          Text('${number / 2.2046}', style: TextStyle(fontSize: 20),),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Container(
-                  color: Colors.lightBlue,
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(32.0),
-                    child: Column(
-                      children: [
-                        Text('Ounce'),
-                        Text('${number * 16}'),
-                      ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Container(
+                    color: Colors.lightBlue,
+                    alignment: Alignment.center,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          Text('Ounce', style: TextStyle(fontSize: 20),),
+                          Text('${number * 16}', style: TextStyle(fontSize: 20),),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        )
-
-      ],
+              ],
+            ),
+          )
+      
+        ],
+      ),
     );
   }
 }
