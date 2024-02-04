@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_apps/Countdown.dart';
-import 'package:flutter_apps/WeightConverter.dart';
+
+import 'BMI/InputPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,18 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.purple,
-        ),
+      theme: ThemeData.dark().copyWith(
+        primaryColor: const Color(0xFF0A0E21),
+        scaffoldBackgroundColor: const Color(0xFF0A0E21),
       ),
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Apps'),
-          backgroundColor: Colors.blue,
+          backgroundColor: const Color(0xFF0A0E21),
+          elevation: 1,
         ),
-        body: const WeightConverter(),
+        body: const InputPage(),
       ),
     );
   }

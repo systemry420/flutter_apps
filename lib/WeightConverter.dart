@@ -14,7 +14,7 @@ class _WeightConverterState extends State<WeightConverter> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Text('Weight Converter', style: TextStyle(fontSize: 40),),
+          const Text('Weight Converter', style: TextStyle(fontSize: 40),),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
@@ -42,8 +42,8 @@ class _WeightConverterState extends State<WeightConverter> {
                       padding: const EdgeInsets.all(20),
                       child: Column(
                         children: [
-                          Text('Gram', style: TextStyle(fontSize: 20),),
-                          Text('${number / 0.0022046}', style: TextStyle(fontSize: 20),),
+                          const Text('Gram', style: TextStyle(fontSize: 20),),
+                          Text('${number / 0.0022046}', style: const TextStyle(fontSize: 20),),
                         ],
                       ),
                     ),
@@ -65,8 +65,8 @@ class _WeightConverterState extends State<WeightConverter> {
                       padding: const EdgeInsets.all(20.0),
                       child: Column(
                         children: [
-                          Text('Kilogram', style: TextStyle(fontSize: 20),),
-                          Text('${number / 2.2046}', style: TextStyle(fontSize: 20),),
+                          const Text('Kilogram', style: TextStyle(fontSize: 20),),
+                          Text('${number / 2.2046}', style: const TextStyle(fontSize: 20),),
                         ],
                       ),
                     ),
@@ -88,8 +88,8 @@ class _WeightConverterState extends State<WeightConverter> {
                       padding: const EdgeInsets.all(20.0),
                       child: Column(
                         children: [
-                          Text('Ounce', style: TextStyle(fontSize: 20),),
-                          Text('${number * 16}', style: TextStyle(fontSize: 20),),
+                          const Text('Ounce', style: TextStyle(fontSize: 20),),
+                          Text('${number * 16}', style: const TextStyle(fontSize: 20),),
                         ],
                       ),
                     ),
