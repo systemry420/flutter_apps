@@ -15,17 +15,17 @@ class _InputPageState extends State<InputPage> {
         Expanded(
           child: Row(
             children: [
-              Expanded(child: Card()),
-              Expanded(child: Card()),
+              Expanded(child: Card(bgColor: Color(0xFF1D1E33),)),
+              Expanded(child: Card(bgColor: Color(0xFF1D1E33))),
             ],
           ),
         ),
-        Expanded(child: Card()),
+        Expanded(child: Card(bgColor: Color(0xFF1D1E33))),
         Expanded(
           child: Row(
             children: [
-              Expanded(child: Card()),
-              Expanded(child: Card()),
+              Expanded(child: Card(bgColor: Color(0xFF1D1E33))),
+              Expanded(child: Card(bgColor: Color(0xFF1D1E33))),
             ],
           ),
         ),
@@ -35,7 +35,8 @@ class _InputPageState extends State<InputPage> {
 }
 
 class Card extends StatelessWidget {
-  const Card({super.key});
+  Color bgColor;
+  Card({required this.bgColor});
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class Card extends StatelessWidget {
       child: Text('Card'),
       margin: EdgeInsets.all(16),
       decoration: BoxDecoration(
-          color: const Color(0xFF1D1E33),
+          color: bgColor,
           borderRadius: BorderRadius.circular(10)),
     );
   }
