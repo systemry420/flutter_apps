@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+const double bottomButtonHeight = 80.0;
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -8,6 +11,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,6 +33,11 @@ class _InputPageState extends State<InputPage> {
             ],
           ),
         ),
+        Container(
+          color: Color(0xFFEB1555),
+          height: bottomButtonHeight,
+          width: double.infinity,
+        )
       ],
     );
   }
@@ -41,8 +50,11 @@ class Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Card'),
+      child: Icon(Icons.male, size: 80,),
+      height: 200,
+      width: double.infinity,
       margin: EdgeInsets.all(16),
+
       decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(10)),
