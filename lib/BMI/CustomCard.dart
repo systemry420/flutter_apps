@@ -6,36 +6,37 @@ class CustomCard extends StatelessWidget {
   final icon;
   final title;
   final content;
-  CustomCard({required this.bgColor, this.icon, this.title, this.content});
+  final childrenContent;
+  const CustomCard({super.key, required this.bgColor, this.icon, this.title, this.content, this.childrenContent});
 
   @override
   Widget build(BuildContext context) {
-    Container container = new Container();
+    Container container = Container();
 
     if(content == null) {
       container = Container(
-        padding: EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 20),
         height: 200,
         width: double.infinity,
-        margin: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: bgColor,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Column(
           children: [
-            Text(title, style: TextStyle(fontSize: 20),),
-            SizedBox(height: 10,),
-            Icon(icon, size: 80,)
+            Text(title, style: const TextStyle(fontSize: 20),),
+            const SizedBox(height: 10,),
+            Icon(icon, size: 80,),
           ],
         ),
       );
     } else {
       container = Container(
-        padding: EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 20),
         height: 200,
         width: double.infinity,
-        margin: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(16),
 
         decoration: BoxDecoration(
           color: bgColor,
@@ -43,13 +44,35 @@ class CustomCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text(title, style: TextStyle(fontSize: 20),),
-            SizedBox(height: 10,),
-            Text(content, style: TextStyle(fontSize: 50, fontWeight: FontWeight.w700),),
+            Text(title, style: const TextStyle(fontSize: 20),),
+            const SizedBox(height: 10,),
+            Text(content, style: const TextStyle(fontSize: 50, fontWeight: FontWeight.w700),),
+            childrenContent
           ],
         ),
       );
     }
     return container;
+  }
+}
+
+class CustomIconButton extends StatelessWidget {
+  final size;
+  final icon;
+  const CustomIconButton({this.size, this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      alignment: Alignment.center,
+      style: ButtonStyle(
+
+      ),
+
+      onPressed: () {},
+      icon: Icon(
+        icon,
+      ),
+    );
   }
 }
