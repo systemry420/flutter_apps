@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import 'InputPage.dart';
+
 class CustomCard extends StatelessWidget {
   final Color bgColor;
   final icon;
@@ -63,15 +65,18 @@ class CustomIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      alignment: Alignment.center,
-      style: ButtonStyle(
-
+    return Container(
+      padding: EdgeInsets.all(3),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(100)),
+        color: inactiveCardColor,
       ),
-
-      onPressed: () {},
-      icon: Icon(
-        icon,
+      child: IconButton(
+        alignment: Alignment.center,
+        onPressed: () {},
+        icon: Icon(
+          icon,
+        ),
       ),
     );
   }
