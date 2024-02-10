@@ -17,6 +17,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.male;
   int height = 170;
+  int weight = 70;
+  int age = 30;
 
   void updateColor(Gender gender) {
     if (gender == Gender.male) {
@@ -92,22 +94,32 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
         ),
-        const Expanded(
+        Expanded(
           child: Row(
             children: [
               Expanded(
                   child: CustomCard(
                 bgColor: activeCardColor,
                 title: 'Weight (KG)',
-                content: '60',
+                content: weight.toString(),
                 childrenContent: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     CustomIconButton(
                       icon: Icons.remove,
+                      onClick: () {
+                        setState(() {
+                          weight--;
+                        });
+                      }
                     ),
                     CustomIconButton(
                       icon: Icons.add,
+                      onClick: () {
+                        setState(() {
+                          weight++;
+                        });
+                      },
                     )
                   ],
                 ),
@@ -116,15 +128,25 @@ class _InputPageState extends State<InputPage> {
                   child: CustomCard(
                 bgColor: activeCardColor,
                 title: 'Age',
-                content: '30',
+                content: age.toString(),
                 childrenContent: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     CustomIconButton(
                       icon: Icons.remove,
+                      onClick: () {
+                        setState(() {
+                          age--;
+                        });
+                      },
                     ),
                     CustomIconButton(
                       icon: Icons.add,
+                      onClick: () {
+                        setState(() {
+                          age++;
+                        });
+                      },
                     )
                   ],
                 ),

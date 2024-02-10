@@ -61,7 +61,8 @@ class CustomCard extends StatelessWidget {
 class CustomIconButton extends StatelessWidget {
   final size;
   final icon;
-  const CustomIconButton({this.size, this.icon});
+  final onClick;
+  const CustomIconButton({this.size, this.icon, this.onClick});
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +74,7 @@ class CustomIconButton extends StatelessWidget {
       ),
       child: IconButton(
         alignment: Alignment.center,
-        onPressed: () {},
+        onPressed: onClick,
         icon: Icon(
           icon,
         ),
