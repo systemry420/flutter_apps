@@ -46,9 +46,9 @@ class CustomCard extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Text(title, style: const TextStyle(fontSize: 20),),
+            Text(title, style: const TextStyle(fontSize: 15),),
             const SizedBox(height: 10,),
-            Text(content, style: const TextStyle(fontSize: 50, fontWeight: FontWeight.w700),),
+            Text(content, style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w700),),
             childrenContent
           ],
         ),
@@ -66,7 +66,7 @@ class CustomIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(3),
+      padding: EdgeInsets.all(1),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(100)),
         color: inactiveCardColor,

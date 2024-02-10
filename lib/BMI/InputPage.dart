@@ -5,10 +5,7 @@ const double bottomButtonHeight = 80.0;
 const activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xFF111328);
 
-enum Gender {
-  male,
-  female
-}
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -18,16 +15,16 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-
   Gender selectedGender = Gender.male;
+  int height = 170;
 
-   void updateColor(Gender gender) {
-     if(gender == Gender.male) {
-       selectedGender = Gender.male;
-     } else {
-       selectedGender = Gender.female;
-     }
-   }
+  void updateColor(Gender gender) {
+    if (gender == Gender.male) {
+      selectedGender = Gender.male;
+    } else {
+      selectedGender = Gender.female;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +41,9 @@ class _InputPageState extends State<InputPage> {
                   });
                 },
                 child: CustomCard(
-                  bgColor: selectedGender == Gender.male ? activeCardColor : inactiveCardColor,
+                  bgColor: selectedGender == Gender.male
+                      ? activeCardColor
+                      : inactiveCardColor,
                   icon: Icons.male,
                   title: 'Male',
                   content: null,
@@ -56,9 +55,11 @@ class _InputPageState extends State<InputPage> {
                   setState(() {
                     updateColor(Gender.female);
                   });
-                  },
+                },
                 child: CustomCard(
-                  bgColor: selectedGender == Gender.female ? activeCardColor : inactiveCardColor,
+                  bgColor: selectedGender == Gender.female
+                      ? activeCardColor
+                      : inactiveCardColor,
                   icon: Icons.female,
                   title: 'Female',
                 ),
@@ -67,22 +68,30 @@ class _InputPageState extends State<InputPage> {
           ),
         ),
         Expanded(
-            child: CustomCard(
-          bgColor: activeCardColor,
-          title: 'Height (cm)',
-          content: '170',
-          childrenContent: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              CustomIconButton(
-                icon: Icons.remove,
+            child: Container(
+              padding: const EdgeInsets.only(top: 20),
+              height: 200,
+              width: double.infinity,
+              margin: const EdgeInsets.all(16),
+
+              decoration: BoxDecoration(
+                color: activeCardColor,
+                borderRadius: BorderRadius.circular(10),
               ),
-              CustomIconButton(
-                icon: Icons.add,
-              )
-            ],
-          ),
-        )),
+              child: Column(
+                children: [
+                  Text('Height (cm)', style: const TextStyle(fontSize: 15),),
+                  const SizedBox(height: 10,),
+                  Text(height.toString(), style: const TextStyle(fontSize: 40, fontWeight: FontWeight.w700),),
+                  Slider(value: 100, min: 100, max: 220, onChanged: (value) {
+                    setState(() {
+                      height = value.round();
+                    });
+                  },)
+                ],
+              ),
+            ),
+        ),
         const Expanded(
           child: Row(
             children: [
