@@ -3,7 +3,10 @@ import 'package:flutter_apps/BMI/CustomCard.dart';
 import 'package:flutter_apps/constants.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  final bmi, title;
+  final color;
+
+  ResultPage({this.title, this.bmi, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +23,6 @@ class ResultPage extends StatelessWidget {
           Expanded(
             child: Container(
               padding: const EdgeInsets.only(top: 20),
-              height: 200,
               width: double.infinity,
               margin: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -30,11 +32,8 @@ class ResultPage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('title', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-                  const SizedBox(height: 30,),
-                  Text('25', style: const TextStyle(fontSize: 100, fontWeight: FontWeight.w700),),
-                  const SizedBox(height: 30,),
-                  Text('content', style: const TextStyle(fontSize: 30, fontWeight: FontWeight.w700),),
+                  Text(title, style: TextStyle(color: color, fontSize: 50, fontWeight: FontWeight.bold),),
+                  Text(bmi, style: const TextStyle(fontSize: 100, fontWeight: FontWeight.w700),),
                 ],
               ),
             ),
@@ -46,12 +45,12 @@ class ResultPage extends StatelessWidget {
               width: double.infinity,
               alignment: Alignment.center,
               child: const Text(
-                'Calculate',
+                'Re-Calculate',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage(),));
+              Navigator.pop(context);
             },
           )
         ],

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_apps/BMI/ResultPage.dart';
 import 'CustomCard.dart';
@@ -170,11 +172,39 @@ class _InputPageState extends State<InputPage> {
               ),
             ),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage(),));
+              Calculator calc = Calculator(height: height, weight: weight);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage(
+                bmi: calc.getBMI(),
+                title: calc.getResult(),
+                color: calc.getColor(),
+              ),));
             },
           )
         ],
       ),
     );
+  }
+}
+
+class Calculator {
+  final height, weight;
+
+  double _bmi = 0;
+  
+  Calculator({this.height, this.weight});
+
+  String getBMI() {
+    _bmi = weight / pow(height / 100, 2);
+    return _bmi.toStringAsFixed(1);
+  }
+
+  String getResult() {
+    return _bmi >= 25 ? 'Overweight' : _bmi > 18.5 && _bmi < 25 ? 'Normal' : 'Underweight';
+  }
+
+  Color getColor() {
+    return _bmi >= 25 ? Colors.red :
+      _bmi > 18.5 && _bmi < 25 ? Colors.green
+          : Colors.deepOrange;
   }
 }
