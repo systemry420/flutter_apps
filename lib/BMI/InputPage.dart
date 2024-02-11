@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_apps/BMI/ResultPage.dart';
 import 'CustomCard.dart';
-
-const double bottomButtonHeight = 80.0;
-const activeCardColor = Color(0xFF1D1E33);
-const inactiveCardColor = Color(0xFF111328);
+import 'package:flutter_apps/constants.dart';
 
 enum Gender { male, female }
 
@@ -160,15 +158,20 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: Color(0xFFEB1555),
-            height: bottomButtonHeight,
-            width: double.infinity,
-            alignment: Alignment.center,
-            child: const Text(
-              'Calculate',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          GestureDetector(
+            child: Container(
+              color: Color(0xFFEB1555),
+              height: bottomButtonHeight,
+              width: double.infinity,
+              alignment: Alignment.center,
+              child: const Text(
+                'Calculate',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
             ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultPage(),));
+            },
           )
         ],
       ),

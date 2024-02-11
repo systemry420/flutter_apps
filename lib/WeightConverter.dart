@@ -65,7 +65,7 @@ class _WeightConverterState extends State<WeightConverter> {
                   Expanded(
                     flex: 1,
                     child: Container(
-                      color: Colors.lightGreen,
+                      color: Colors.green,
                       alignment: Alignment.center,
                       child: Padding(
                         padding: const EdgeInsets.all(20.0),

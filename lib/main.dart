@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_apps/BMI/ResultPage.dart';
 import 'package:flutter_apps/Countdown.dart';
 import 'package:flutter_apps/Counter.dart';
 import 'package:flutter_apps/WeightConverter.dart';
@@ -20,7 +21,8 @@ class MyApp extends StatelessWidget {
         '/counter': (context) => Counter(),
         '/countdown': (context) => Countdown(),
         '/weightConverter': (context) => WeightConverter(),
-        '/bmi': (context) => InputPage()
+        '/bmi': (context) => InputPage(),
+        '/bmi-result': (context) => ResultPage()
       },
       theme: ThemeData.dark().copyWith(
         primaryColor: const Color(0xFF0A0E21),
