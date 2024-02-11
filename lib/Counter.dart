@@ -12,40 +12,47 @@ class _CounterState extends State<Counter> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            counter.toString(),
-            style: const TextStyle(fontSize: 200),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    counter++;
-                  });
-                },
-                icon: const Icon(Icons.arrow_circle_up),
-                color: Colors.green,
-                iconSize: 100,
-              ),
-              IconButton(
-                onPressed: () {
-                  setState(() {
-                    counter--;
-                  });
-                },
-                icon: const Icon(Icons.arrow_circle_down),
-                color: Colors.red,
-                iconSize: 100,
-              )
-            ],
-          ),
-        ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Apps'),
+        backgroundColor: const Color(0xFF0A0E21),
+        elevation: 1,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text(
+              counter.toString(),
+              style: const TextStyle(fontSize: 200),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      counter++;
+                    });
+                  },
+                  icon: const Icon(Icons.arrow_circle_up),
+                  color: Colors.green,
+                  iconSize: 100,
+                ),
+                IconButton(
+                  onPressed: () {
+                    setState(() {
+                      counter--;
+                    });
+                  },
+                  icon: const Icon(Icons.arrow_circle_down),
+                  color: Colors.red,
+                  iconSize: 100,
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

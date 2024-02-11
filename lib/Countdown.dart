@@ -35,71 +35,78 @@ class _CountdownState extends State<Countdown> {
         seconds %= 60;
       });
     });
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Padding(
-            padding: EdgeInsets.only(bottom: 120.0),
-            child: Column(
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Countdown'),
+        backgroundColor: const Color(0xFF0A0E21),
+        elevation: 1,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Padding(
+              padding: EdgeInsets.only(bottom: 120.0),
+              child: Column(
+                children: [
+                  Text('Countdown', style: TextStyle(fontSize: 40),),
+                  Icon(Icons.alarm, size: 100, color: Colors.purple,),
+                ],
+              )
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('Countdown', style: TextStyle(fontSize: 40),),
-                Icon(Icons.alarm, size: 100, color: Colors.purple,),
+                Container(
+                    width: 90,
+                  alignment: Alignment.center,
+                    child: Text('${ days < 10 ? "0$days" : days}', style: const TextStyle(fontSize: 45),),
+                ),
+                Container(
+                    width: 90,
+                  alignment: Alignment.center,
+                    child: Text('${ hours < 10 ? "0$hours" : hours }', style: const TextStyle(fontSize: 45),),
+                ),
+                Container(
+                    width: 90,
+                  alignment: Alignment.center,
+                    child: Text('${ minutes < 10 ? "0$minutes" : minutes }', style: const TextStyle(fontSize: 45),),
+                ),
+                Container(
+                    width: 90,
+                  alignment: Alignment.center,
+                    child: Text('${ seconds < 10 ? "0$seconds": seconds }', style: const TextStyle(fontSize: 45),),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                    width: 90,
+                  alignment: Alignment.center,
+                    child: const Text('D', style: TextStyle(fontSize: 70),),
+                ),
+                Container(
+                    width: 90,
+                  alignment: Alignment.center,
+                  child: const Text('H', style: TextStyle(fontSize: 70),),
+                ),
+                Container(
+                    width: 90,
+                  alignment: Alignment.center,
+                    child: const Text('M', style: TextStyle(fontSize: 70),),
+                ),
+                Container(
+                    width: 90,
+                  alignment: Alignment.center,
+                    child: const Text('S', style: TextStyle(fontSize: 70),),
+                ),
               ],
             )
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                  width: 90,
-                alignment: Alignment.center,
-                  child: Text('${ days < 10 ? "0$days" : days}', style: const TextStyle(fontSize: 45),),
-              ),
-              Container(
-                  width: 90,
-                alignment: Alignment.center,
-                  child: Text('${ hours < 10 ? "0$hours" : hours }', style: const TextStyle(fontSize: 45),),
-              ),
-              Container(
-                  width: 90,
-                alignment: Alignment.center,
-                  child: Text('${ minutes < 10 ? "0$minutes" : minutes }', style: const TextStyle(fontSize: 45),),
-              ),
-              Container(
-                  width: 90,
-                alignment: Alignment.center,
-                  child: Text('${ seconds < 10 ? "0$seconds": seconds }', style: const TextStyle(fontSize: 45),),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                  width: 90,
-                alignment: Alignment.center,
-                  child: const Text('D', style: TextStyle(fontSize: 70),),
-              ),
-              Container(
-                  width: 90,
-                alignment: Alignment.center,
-                child: const Text('H', style: TextStyle(fontSize: 70),),
-              ),
-              Container(
-                  width: 90,
-                alignment: Alignment.center,
-                  child: const Text('M', style: TextStyle(fontSize: 70),),
-              ),
-              Container(
-                  width: 90,
-                alignment: Alignment.center,
-                  child: const Text('S', style: TextStyle(fontSize: 70),),
-              ),
-            ],
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
