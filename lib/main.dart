@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_apps/BMI/ResultPage.dart';
 import 'package:flutter_apps/Countdown.dart';
 import 'package:flutter_apps/Counter.dart';
+import 'package:flutter_apps/WeatherApp/weather_main.dart';
 import 'package:flutter_apps/WeightConverter.dart';
 
 import 'BMI/InputPage.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/countdown': (context) => Countdown(),
         '/weightConverter': (context) => WeightConverter(),
         '/bmi': (context) => InputPage(),
+        '/weather': (context) => WeatherMain(),
         '/bmi-result': (context) => ResultPage()
       },
       theme: ThemeData.dark().copyWith(
@@ -102,6 +104,21 @@ class MainPage extends StatelessWidget {
                       child: Text('BMI Calculator'),
                     onPressed: () {
                       Navigator.pushNamed(context, '/bmi');
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    child: Text('Weather App'),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/weather');
                     },
                   ),
                 ),
