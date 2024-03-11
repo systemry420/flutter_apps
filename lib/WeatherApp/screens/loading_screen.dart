@@ -11,45 +11,80 @@ class LoadingScreen extends StatefulWidget {
 
 class _LoadingScreenState extends State<LoadingScreen> {
 
-  Future<http.Response> fetchAlbum() {
-    return http.get(Uri.parse('https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=Cx0yFXAGqutOOp3xXP500Yl2SL9cOqyA'));
+  void fetchAlbum() async {
+    try {
+      final response = await http.get(Uri.parse('https://api.tomorrow.io/v4/weather/forecast?location=42.3478,-71.0466&apikey=Cx0yFXAGqutOOp3xXP500Yl2SL9cOqyA'));
+
+      if (response.statusCode == 200) {
+        // If the server returns a 200 OK response, parse the JSON
+        final Map<String, dynamic> body = json.decode(response.body);
+
+        // Now you can access the data
+        if (body != null && body != null) {
+          // for (Daily dailyData in body) {
+          //   if (dailyData.values != null) {
+          //     print('Temperature Max: ${dailyData.values!.temperatureMax}');
+          //     print('Temperature Min: ${dailyData.values!.temperatureMin}');
+          //     print('Wind Speed Avg: ${dailyData.values!.windSpeedAvg}');
+          //     print('Cloud Cover Avg: ${dailyData.values!.cloudCoverAvg}');
+          //     print('---');
+          //   }
+          // }
+        }
+      } else {
+        // If the server returns an error response, throw an exception
+        throw Exception('Failed to load data: ${response.statusCode}');
+      }
+    } catch (e) {
+      // Catch any errors that occur during the process
+      print('Error: $e');
+    }
+    //return http.get(Uri.parse();
   }
 
   @override
   Widget build(BuildContext context) {
+    Body? jsonValue;
     return Scaffold(
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            String jsonValue;
-            Future<http.Response> response = fetchAlbum();
-            response.then((value) => jsonValue = value.body);
+      body: Column(
+        children: [
+          //Text(jsonValue?.body?.daily[0]?.values?.temperatureMax!.toString()),
+          Center(
+            child: ElevatedButton(
+              onPressed: () {
+                // Future<http.Response> response =
+                fetchAlbum();
+                // response.then((value) => {
+                //   jsonValue = Body.fromJson(value.body as Map<String, dynamic>)
+                // });
 
 
-            // if (response?.statusCode == 200) {
-            //   var decoded = utf8.decode(response.bodyBytes);
-            //   print(decoded);
-            //
-            //   return decoded;
-            // } else {
-            //   return "Error";
-            // }
-          },
-          child: Text('Get Location'),
-        ),
+                // if (response?.statusCode == 200) {
+                //   var decoded = utf8.decode(response.bodyBytes);
+                //   print(decoded);
+                //
+                //   return decoded;
+                // } else {
+                //   return "Error";
+                // }
+              },
+              child: Text('Get Location'),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
 class Body {
-  Timelines? timelines;
+  Timelines? body;
 
-  Body({this.timelines});
+  Body({this.body});
 
   Body.fromJson(Map<String, dynamic> json) {
     if (json['timelines'] != null) {
-      timelines = json['timelines'];
+      body = json['timelines'];
     }
   }
 }
