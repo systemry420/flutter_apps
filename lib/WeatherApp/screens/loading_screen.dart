@@ -21,7 +21,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
         // Now you can access the data
         if (body != null && body != null) {
-          // for (Daily dailyData in body) {
+           
           //   if (dailyData.values != null) {
           //     print('Temperature Max: ${dailyData.values!.temperatureMax}');
           //     print('Temperature Min: ${dailyData.values!.temperatureMin}');
