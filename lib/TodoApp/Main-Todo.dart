@@ -11,7 +11,20 @@ class MainTodo extends StatefulWidget {
 }
 
 class _MainTodoState extends State<MainTodo> {
+  late TextEditingController _controller;
   List<String> entries = ['1', '2', '3'];
+
+  @override
+  void initState() {
+    _controller = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +40,18 @@ class _MainTodoState extends State<MainTodo> {
           children: [
             TextField(
               style: TextStyle(color: Colors.white),
+              controller: _controller,
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  setState(() {
+                    String inputText = _controller.text;
+                    entries.add(inputText);
+                    _controller.text = '';
+                  });
+                },
                 child: Text('Add note'),
               ),
             ),
@@ -42,9 +62,18 @@ class _MainTodoState extends State<MainTodo> {
                   itemCount: entries.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
+                      decoration: BoxDecoration(
+                        color: Colors.purpleAccent,
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
                       height: 50,
-                      color: Colors.amber[int.parse(entries[index])],
-                      child: Center(child: Text('Entry ${entries[index]}')),
+                      child: Text(
+                        'Entry ${entries[index]}',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) =>
