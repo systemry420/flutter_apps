@@ -34,20 +34,24 @@ class _MainTodoState extends State<MainTodo> {
                 onPressed: () {},
                 child: Text('Add note'),
               ),
-            )
-            // ListView.separated(
-            //   padding: const EdgeInsets.all(8),
-            //   itemCount: entries.length,
-            //   itemBuilder: (BuildContext context, int index) {
-            //     return Container(
-            //       height: 50,
-            //       color: Colors.amber[int.parse(entries[index])],
-            //       child: Center(child: Text('Entry ${entries[index]}')),
-            //     );
-            //   },
-            //   separatorBuilder: (BuildContext context, int index) =>
-            //       const Divider(),
-            // ),
+            ),
+            Expanded(
+              child: SizedBox(
+                child: ListView.separated(
+                  padding: const EdgeInsets.all(8),
+                  itemCount: entries.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      height: 50,
+                      color: Colors.amber[int.parse(entries[index])],
+                      child: Center(child: Text('Entry ${entries[index]}')),
+                    );
+                  },
+                  separatorBuilder: (BuildContext context, int index) =>
+                      const Divider(),
+                ),
+              ),
+            ),
           ],
         ),
       ),
